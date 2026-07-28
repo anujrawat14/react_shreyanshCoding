@@ -34,6 +34,15 @@
 * It helps maintain clean, consistent, and readable code.
 * Custom linting rules can be configured for collaborative projects.
 
+* ## Oxlint
+
+* Oxlint is a fast JavaScript and TypeScript linter written in Rust.
+* It is significantly faster than ESLint, making it suitable for large projects.
+* It helps detect common bugs, code quality issues, and unnecessary code.
+* Oxlint is often used alongside ESLint or as a faster alternative for linting.
+* Since it is very fast, it is useful in collaborative projects where code is checked frequently.
+
+
 ## `.gitignore`
 
 * `.gitignore` specifies files and folders that Git should ignore.
