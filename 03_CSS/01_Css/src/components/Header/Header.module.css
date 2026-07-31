@@ -1,0 +1,16 @@
+.Header{
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+}
+.btn{
+    border-color: yellow;
+    font-weight: 500;
+    color: black;
+}
+.logo{
+    text-decoration: underline;
+}
