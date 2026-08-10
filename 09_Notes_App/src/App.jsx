@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { X } from 'lucide-react';
 
 const App = () => {
   const [data, setData] = useState("");
@@ -6,9 +7,13 @@ const App = () => {
 
   //add krni hai yeah mera card main
   const [task, setTask] = useState([]);
-  // const img = "https://imgs.search.brave.com/jC1Z0tH9LMaOKbFLTQeoV7Pez_FOxReopfAKmH2gv2Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVldmV6/eS5jb20vc3lzdGVt/L3Jlc291cmNlcy90/aHVtYm5haWxzLzA0/Mi8wNTQvNzAzL3Nt/YWxsL3BhcGVyLXN0/aWNreS1ub3RlLXBu/Zy5wbmc";
-  // const img="https://imgs.search.brave.com/y-RtIbgRZ-CcANAVkPXfNeWS4QHMRqYGmzrKkhC_EMA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L3ByZW1pdW0tcGhv/dG8vcG5nLXBhcGVy/LW5vdGUtc3RpY2tl/ci10cmFuc3BhcmVu/dC1iYWNrZ3JvdW5k/XzUzODc2LTEwMzAw/NjMuanBnP3NlbXQ9/YWlzX2h5YnJpZCZ3/PTc0MCZxPTgw";
-  const img = "https://imgs.search.brave.com/SnLrlOC0j04AW3Ygq10ql4geY8Y0Gnt5-GsUZdV5vko/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtdmVjdG9y/L2xlYWZ5LXBhdHRl/cm5lZC1ub3RlLWJh/Y2tncm91bmRfNTM4/NzYtOTc3MzQuanBn/P3NlbXQ9YWlzX2h5/YnJpZCZ3PTc0MCZx/PTgw"
+  const img = "https://static.vecteezy.com/system/resources/previews/037/152/677/non_2x/sticky-note-paper-background-free-png.png"
+  const deleteNode = (idx) => {
+    const arr1 = [...task];
+    arr1.splice(idx, 1);
+    setTask(arr1)
+  }
+
   return (
     <div className='lg:flex h-screen bg-black text-white'>
 
@@ -58,14 +63,27 @@ const App = () => {
 
         <h1 className='text-3xl font-bold'>Recent Notes</h1>
 
-        <div className='flex flex-wrap gap-5 h-full mt-6 overflow-auto'>
+        <div className='  flex flex-wrap justify-start gap-5 h-[90%] mt-6 overflow-scroll scrollbar-hide'>
 
           {/* <div className='h-52 w-40 rounded-2xl bg-white text-black '></div> */}
           {task.map((elem, index) =>
-            <div key={index} className='h-52 w-40 rounded-2xl bg-cover text-black '
+
+            <div key={index} className='flex justify-between flex-col item-start  pt-6 pb-3 px-4 h-52 w-40 rounded-xl bg-cover text-black '
               style={{ backgroundImage: `url(${img})` }}>
-              <h1 className='leading-tight text-center p-1.5 text-2xl font-bold '>{elem.data}</h1>
-              <p className='pt-1 pl-1.5 text-lg font-semibold '>{elem.details}</p>
+              <div>
+                <h1 className='leading-tight text-center p-1.5 text-2xl font-bold '>{elem.data}</h1>
+                <p className="pt-1 pl-1.5 text-sm font-medium line-clamp-5 break-words">
+                  {elem.details}
+                </p>
+              </div>
+              <button
+                onClick={() => {
+                  //  deleteNode(index);
+                   setTask(task.filter((_, i) => i !== index));
+                }}
+                className='active:scale-120 bg-red-500 text-xs rounded font-bold text-white w-full '>Delete</button>
+              {/* <h2 className='absolute top-5 right-5 bg-red-500 p-1 rounded-full' ><X size={16} strokeWidth={2.75} /></h2> */}
+
             </div>
           )}
 
