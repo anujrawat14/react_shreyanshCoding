@@ -1,6 +1,7 @@
 import React from 'react'
 import Button from './Button'
 import Gallery from './Gallery'
+import Scrollingweb from "./Scrollingweb"
 
 const App = () => {
   return (
@@ -8,7 +9,8 @@ const App = () => {
       {/* using button */}
       {/* <Button/> */}
       {/* using useefect hook directly */}
-      <Gallery/>
+      {/* <Gallery/> */}
+      <Scrollingweb />
     </div>
   )
 }
